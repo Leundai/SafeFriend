@@ -9,7 +9,7 @@ export default function MainButtons() {
         <TouchableOpacity style={styles.largeButton} onPress={flashLight()}>
           <Text>Flashlight</Text>
         </TouchableOpacity>
-        {/*Hello*/ }
+        {/*Hello*/}
         <TouchableOpacity style={styles.largeButton} onPress={emergencyCall()}>
           <Text>Emergency Call</Text>
         </TouchableOpacity>
