@@ -1,42 +1,41 @@
 import React from 'react';
-import {Component, Button, View} from 'react-native';
+import {Text, TouchableOpacity, View} from 'react-native';
 import styles from '~/../../app/styles/MainStyles';
 
 export default function MainButtons() {
   return (
     <React.Fragment>
       <View style={styles.flexButtons}>
-        <Button
-          style={styles.largeButton}
-          onPress={flashLight()}
-          title="Flashlight"
-        />
-        <Button
-          style={styles.largeButton}
-          onPress={emergencyCall()}
-          title="Emergency Call"
-        />
-      </View>
-      <View style={styles.flexButtons}>
-        <Button
-          style={styles.largeButton}
-          onPress={route()}
-          title="Create Route"
-        />
-        <Button
-          style={styles.largeButton}
-          onPress={arrived()}
-          title="Arrived"
-        />
+        <TouchableOpacity style={styles.largeButton} onPress={flashLight()}>
+          <Text>Flashlight</Text>
+        </TouchableOpacity>
+        {/*Hello*/ }
+        <TouchableOpacity style={styles.largeButton} onPress={emergencyCall()}>
+          <Text>Emergency Call</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.largeButton} onPress={route()}>
+          <Text>Create Route</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.largeButton} onPress={arrived()}>
+          <Text>Arrived</Text>
+        </TouchableOpacity>
       </View>
     </React.Fragment>
   );
 }
 
-function flashLight() {}
+function flashLight() {
+  console.log('Light On');
+}
 
-function emergencyCall() {}
+function emergencyCall() {
+  console.log('Calling');
+}
 
-function route() {}
+function route() {
+  console.log('Making a path');
+}
 
-function arrived() {}
+function arrived() {
+  console.log('Arrived!');
+}
