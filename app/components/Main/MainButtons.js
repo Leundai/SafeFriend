@@ -6,19 +6,25 @@ export default function MainButtons() {
   return (
     <React.Fragment>
       <View style={styles.flexButtons}>
-        <TouchableOpacity style={styles.largeButton} onPress={flashLight()}>
-          <Text>Flashlight</Text>
-        </TouchableOpacity>
-        {/*Hello*/}
-        <TouchableOpacity style={styles.largeButton} onPress={emergencyCall()}>
-          <Text>Emergency Call</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.largeButton} onPress={route()}>
-          <Text>Create Route</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.largeButton} onPress={arrived()}>
-          <Text>Arrived</Text>
-        </TouchableOpacity>
+        <View style={styles.columnButtons}>
+          <TouchableOpacity style={styles.largeButton} onPress={flashLight()}>
+            <Text style={styles.buttonText}>Flashlight</Text>
+          </TouchableOpacity>
+          {/*Hello*/}
+          <TouchableOpacity
+            style={styles.largeButton}
+            onPress={emergencyCall()}>
+            <Text style={styles.buttonText}>Emergency Call</Text>
+          </TouchableOpacity>
+        </View>
+        <View style={styles.columnButtons}>
+          <TouchableOpacity style={styles.largeButton} onPress={route()}>
+            <Text style={styles.buttonText}>Create Route</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.largeButton} onPress={arrived()}>
+            <Text style={styles.buttonText}>Arrived</Text>
+          </TouchableOpacity>
+        </View>
       </View>
     </React.Fragment>
   );
