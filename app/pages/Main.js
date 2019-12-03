@@ -6,7 +6,7 @@ import MainButtons from '../../app/components/Main/MainButtons';
 export default function Main() {
   return (
     <SafeAreaView style={styles.safeContainer}>
-      <Text style={styles.header}>Welcome!</Text>
+      <Text style={styles.header}>SafeFriend</Text>
       <MainButtons />
     </SafeAreaView>
   );
