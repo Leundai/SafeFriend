@@ -2,7 +2,6 @@ import {StyleSheet} from 'react-native';
 
 export default StyleSheet.create({
   header: {
-    backgroundColor: 'yellow',
     fontSize: 36,
     alignSelf: 'center',
   },

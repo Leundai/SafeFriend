@@ -7,21 +7,19 @@ export default function MainButtons() {
     <React.Fragment>
       <View style={styles.flexButtons}>
         <View style={styles.columnButtons}>
-          <TouchableOpacity style={styles.largeButton} onPress={flashLight()}>
+          <TouchableOpacity style={styles.largeButton} onPress={flashLight}>
             <Text style={styles.buttonText}>Flashlight</Text>
           </TouchableOpacity>
           {/*Hello*/}
-          <TouchableOpacity
-            style={styles.largeButton}
-            onPress={emergencyCall()}>
+          <TouchableOpacity style={styles.largeButton} onPress={emergencyCall}>
             <Text style={styles.buttonText}>Emergency Call</Text>
           </TouchableOpacity>
         </View>
         <View style={styles.columnButtons}>
-          <TouchableOpacity style={styles.largeButton} onPress={route()}>
+          <TouchableOpacity style={styles.largeButton} onPress={route}>
             <Text style={styles.buttonText}>Create Route</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.largeButton} onPress={arrived()}>
+          <TouchableOpacity style={styles.largeButton} onPress={arrived}>
             <Text style={styles.buttonText}>Arrived</Text>
           </TouchableOpacity>
         </View>
@@ -31,17 +29,17 @@ export default function MainButtons() {
 }
 
 function flashLight() {
-  console.log('Light On');
+  console.warn('Light On');
 }
 
 function emergencyCall() {
-  console.log('Calling');
+  console.warn('Calling');
 }
 
 function route() {
-  console.log('Making a path');
+  console.warn('Making a path');
 }
 
 function arrived() {
-  console.log('Arrived!');
+  console.warn('Arrived!');
 }
