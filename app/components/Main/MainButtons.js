@@ -1,6 +1,9 @@
-import React from 'react';
+import React, {useEffect, useState, Component} from 'react';
 import {Text, TouchableOpacity, View} from 'react-native';
 import styles from '~/../../app/styles/MainStyles';
+import Torch from 'react-native-torch';
+
+let torchB = true;
 
 export default function MainButtons() {
   return (
@@ -8,19 +11,19 @@ export default function MainButtons() {
       <View style={styles.flexButtons}>
         <View style={styles.columnButtons}>
           <TouchableOpacity style={styles.largeButton} onPress={flashLight}>
-            <Text style={styles.buttonText}>Flashlight</Text>
+            <Text style={styles.buttonText}>FLASHLIGHT</Text>
           </TouchableOpacity>
           {/*Hello*/}
           <TouchableOpacity style={styles.largeButton} onPress={emergencyCall}>
-            <Text style={styles.buttonText}>Emergency Call</Text>
+            <Text style={styles.buttonText}>EMERGENCY CALL</Text>
           </TouchableOpacity>
         </View>
         <View style={styles.columnButtons}>
           <TouchableOpacity style={styles.largeButton} onPress={route}>
-            <Text style={styles.buttonText}>Create Route</Text>
+            <Text style={styles.buttonText}>CREATE ROUTE</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.largeButton} onPress={arrived}>
-            <Text style={styles.buttonText}>Arrived</Text>
+            <Text style={styles.buttonText}>ARRIVED</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -29,7 +32,13 @@ export default function MainButtons() {
 }
 
 function flashLight() {
-  console.warn('Light On');
+  if (torchB === true) {
+    Torch.switchState(false);
+    torchB = false;
+  } else {
+    Torch.switchState(true);
+    torchB = true;
+  }
 }
 
 function emergencyCall() {
