@@ -23,7 +23,6 @@ export default StyleSheet.create({
   flexButtons: {
     flexGrow: 1,
     flexDirection: 'row',
-    justifyContent: 'center',
     alignItems: 'center',
     paddingTop: 230,
   },
