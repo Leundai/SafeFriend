@@ -2,6 +2,7 @@ import React, {useEffect, useState, Component} from 'react';
 import {Text, TouchableOpacity, View} from 'react-native';
 import styles from '~/../../app/styles/MainStyles';
 import Torch from 'react-native-torch';
+import RNImmediatePhoneCall from 'react-native-immediate-phone-call';
 
 let torchB = true;
 
@@ -42,7 +43,7 @@ function flashLight() {
 }
 
 function emergencyCall() {
-  console.warn('Calling');
+  RNImmediatePhoneCall.immediatePhoneCall('6467254427');
 }
 
 function route() {
