@@ -24,13 +24,19 @@ export default function MainButtons() {
           <TouchableOpacity style={styles.largeButton} onPress={emergencyCall}>
             <Text style={styles.buttonText}>EMERGENCY CALL</Text>
           </TouchableOpacity>
+          <TouchableOpacity style={styles.largeButton} onPress={emergencyCall}>
+            <Text style={styles.buttonText}>EMERGENCY CALL</Text>
+          </TouchableOpacity>
         </View>
         <View style={styles.columnButtons}>
-          <TouchableOpacity style={styles.largeButton} onPress={route}>
-            <Text style={styles.buttonText}>CREATE ROUTE</Text>
+          <TouchableOpacity style={styles.largeButton} onPress={share}>
+            <Text style={styles.buttonText}>SHARE LOCATION</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.largeButton} onPress={arrived}>
             <Text style={styles.buttonText}>ARRIVED</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.largeButton} onPress={emergencyCall}>
+            <Text style={styles.buttonText}>EMERGENCY CALL</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -94,8 +100,8 @@ const AsyncAlert = () =>
     );
   });
 
-function route() {
-  console.warn('Making a path');
+function share() {
+  console.warn('Sharing Path');
 }
 
 function arrived() {

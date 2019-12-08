@@ -1,5 +1,5 @@
 import React, {useEffect, useState, Component} from 'react';
-import {Text, SafeAreaView, Image} from 'react-native';
+import {Text, SafeAreaView, Image, View} from 'react-native';
 import styles from '../../app/styles/MainStyles';
 import MainButtons from '../../app/components/Main/MainButtons';
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
@@ -8,6 +8,7 @@ export default function Main() {
   return (
     <SafeAreaView style={styles.safeContainer}>
       <Text style={styles.header}> SafeFriend </Text>
+			<View></View>
       <MapView
 	  	style={styles.map}
 	    initialRegion={{
