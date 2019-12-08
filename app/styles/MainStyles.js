@@ -6,6 +6,9 @@ export default StyleSheet.create({
     alignSelf: 'center',
     flex: 0.3,
   },
+  map: {
+    borderWidth: 190,
+  },
   safeContainer: {
     alignItems: 'center',
     justifyContent: 'center',
