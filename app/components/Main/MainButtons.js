@@ -1,5 +1,11 @@
 import React, {useEffect, useState, Component} from 'react';
-import {Text, TouchableOpacity, View} from 'react-native';
+import {
+  Alert,
+  Text,
+  TouchableOpacity,
+  View,
+  PermissionsAndroid,
+} from 'react-native';
 import styles from '~/../../app/styles/MainStyles';
 import Torch from 'react-native-torch';
 import RNImmediatePhoneCall from 'react-native-immediate-phone-call';
@@ -42,9 +48,51 @@ function flashLight() {
   }
 }
 
-function emergencyCall() {
-  RNImmediatePhoneCall.immediatePhoneCall('6467254427');
+async function emergencyCall() {
+  var accept = false;
+  try {
+    const granted = await PermissionsAndroid.request(
+      PermissionsAndroid.PERMISSIONS.CALL_PHONE,
+      {
+        title:
+          'Safe Friend App needs phone call permissions' +
+          'so you can contact emergency lines quickly through app',
+        buttonNeutral: 'Ask Me Later',
+        buttonNegative: 'Cancel',
+        buttonPositive: 'OK',
+      },
+    );
+    if (granted === PermissionsAndroid.RESULTS.GRANTED) {
+      accept = await AsyncAlert();
+      if (accept === true) {
+        RNImmediatePhoneCall.immediatePhoneCall('8478268553');
+      }
+    } else {
+      console.log('Phone Call permissions denied');
+    }
+  } catch (err) {
+    console.warn(err);
+  }
 }
+
+const AsyncAlert = () =>
+  new Promise(resolve => {
+    Alert.alert(
+      'Call 911',
+      'Are you sure you want to call?',
+      [
+        {
+          text: 'CANCEL',
+          onPress: () => resolve(false),
+        },
+        {
+          text: 'YES',
+          onPress: () => resolve(true),
+        },
+      ],
+      {cancelable: false},
+    );
+  });
 
 function route() {
   console.warn('Making a path');
