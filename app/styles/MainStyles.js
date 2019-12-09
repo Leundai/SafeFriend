@@ -5,12 +5,10 @@ export default StyleSheet.create({
     fontSize: 36,
     alignSelf: 'center',
     flex: 0.3,
-    marginBottom: 35,
     color: '#6200EE',
   },
   map: {
-    borderWidth: 190,
-    alignSelf: 'center',
+    borderWidth: 180,
   },
   safeContainer: {
     alignItems: 'center',
@@ -35,7 +33,7 @@ export default StyleSheet.create({
   },
   columnButtons: {
     flex: 1,
-    height: 300,
+    height: 280,
   },
   buttonText: {
     fontSize: 18,

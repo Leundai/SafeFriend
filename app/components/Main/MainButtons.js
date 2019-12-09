@@ -25,7 +25,7 @@ export default function MainButtons() {
             <Text style={styles.buttonText}>EMERGENCY CALL</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.largeButton} onPress={emergencyCall}>
-            <Text style={styles.buttonText}>EMERGENCY CALL</Text>
+            <Text style={styles.buttonText}>SAFERIDES</Text>
           </TouchableOpacity>
         </View>
         <View style={styles.columnButtons}>
@@ -36,7 +36,7 @@ export default function MainButtons() {
             <Text style={styles.buttonText}>ARRIVED</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.largeButton} onPress={emergencyCall}>
-            <Text style={styles.buttonText}>EMERGENCY CALL</Text>
+            <Text style={styles.buttonText}>SAFEWALKS</Text>
           </TouchableOpacity>
         </View>
       </View>

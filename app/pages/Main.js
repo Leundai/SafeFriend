@@ -8,7 +8,6 @@ export default function Main() {
   return (
     <SafeAreaView style={styles.safeContainer}>
       <Text style={styles.header}> SafeFriend </Text>
-			<View></View>
       <MapView
 	  	style={styles.map}
 	    initialRegion={{
