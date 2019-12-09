@@ -11,13 +11,13 @@ export default function Main() {
       <MapView
 	  	style={styles.map}
 	    initialRegion={{
-	      latitude: 37.78825,
-	      longitude: -122.4324,
-	      latitudeDelta: 0.0922,
-	      longitudeDelta: 0.0421,
+	      latitude: 40.113983,
+	      longitude: -88.224412,
+	      latitudeDelta: 0.005,
+	      longitudeDelta: 0.005
 	    }}
 	  />
-	  <MainButtons />
+	   <MainButtons />
     </SafeAreaView>
   );
 }
