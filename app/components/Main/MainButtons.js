@@ -42,7 +42,7 @@ export default function MainButtons() {
           </TouchableOpacity>
           <TouchableOpacity
             style={styles.largeButton}
-            onPress={() => immediateCall('SafeRides', '2172657433')}>
+            onPress={() => immediateCall()}>
             <Text style={styles.buttonText}>SAFE RIDES</Text>
           </TouchableOpacity>
         </View>
@@ -130,4 +130,17 @@ function arrived() {
       );
     },
   );
+}
+
+function safeRides() {
+  const url = "https://play.google.com/store/apps/details?id=com.routematch.cumtd&hl=en_US";
+  Linking.canOpenURL(url)
+  .then((supported) => {
+    if (!supported) {
+      () => immediateCall('SafeRides', '2172657433');
+    } else {
+      return Linking.openURL(url);
+    }
+  })
+  .catch((err) => console.error('An error occurred', err));
 }
