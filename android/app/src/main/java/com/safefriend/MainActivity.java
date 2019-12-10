@@ -2,6 +2,8 @@ package com.safefriend;
 
 import com.facebook.react.ReactActivity;
 import com.github.wumke.RNImmediatePhoneCall.RNImmediatePhoneCallPackage;
+import android.content.Intent; // <-- include if not already there
+import com.tkporter.sendsms.SendSMSPackage;
 
 public class MainActivity extends ReactActivity {
 
@@ -16,5 +18,11 @@ public class MainActivity extends ReactActivity {
   @Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+    }
+  @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+      super.onActivityResult(requestCode, resultCode, data);
+      //probably some other stuff here
+      SendSMSPackage.getInstance().onActivityResult(requestCode, resultCode, data);
     }    
 }

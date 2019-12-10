@@ -5,7 +5,7 @@ export default StyleSheet.create({
     fontSize: 36,
     alignSelf: 'center',
     flex: 0.3,
-    marginBottom: 35,
+    marginBottom: 30,
     color: '#6200EE',
   },
   map: {

@@ -9,6 +9,7 @@ import {
 import styles from '~/../../app/styles/MainStyles';
 import Torch from 'react-native-torch';
 import RNImmediatePhoneCall from 'react-native-immediate-phone-call';
+import SendSMS from 'react-native-sms';
 
 let torchB = true;
 
@@ -21,11 +22,15 @@ export default function MainButtons() {
             <Text style={styles.buttonText}>FLASHLIGHT</Text>
           </TouchableOpacity>
           {/*Hello*/}
-          <TouchableOpacity style={styles.largeButton} onPress={emergencyCall}>
+          <TouchableOpacity
+            style={styles.largeButton}
+            onPress={() => immediateCall('911', '6467254427')}>
             <Text style={styles.buttonText}>EMERGENCY CALL</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.largeButton} onPress={emergencyCall}>
-            <Text style={styles.buttonText}>EMERGENCY CALL</Text>
+          <TouchableOpacity
+            style={styles.largeButton}
+            onPress={() => immediateCall('SafeWalks', '2173331216')}>
+            <Text style={styles.buttonText}>SAFE WALKS</Text>
           </TouchableOpacity>
         </View>
         <View style={styles.columnButtons}>
@@ -35,8 +40,10 @@ export default function MainButtons() {
           <TouchableOpacity style={styles.largeButton} onPress={arrived}>
             <Text style={styles.buttonText}>ARRIVED</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.largeButton} onPress={emergencyCall}>
-            <Text style={styles.buttonText}>EMERGENCY CALL</Text>
+          <TouchableOpacity
+            style={styles.largeButton}
+            onPress={() => immediateCall('SafeRides', '2172657433')}>
+            <Text style={styles.buttonText}>SAFE RIDES</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -54,7 +61,7 @@ function flashLight() {
   }
 }
 
-async function emergencyCall() {
+async function immediateCall(text, number) {
   var accept = false;
   try {
     const granted = await PermissionsAndroid.request(
@@ -69,9 +76,9 @@ async function emergencyCall() {
       },
     );
     if (granted === PermissionsAndroid.RESULTS.GRANTED) {
-      accept = await AsyncAlert();
+      accept = await AsyncAlert(text);
       if (accept === true) {
-        RNImmediatePhoneCall.immediatePhoneCall('8478268553');
+        RNImmediatePhoneCall.immediatePhoneCall(number);
       }
     } else {
       console.log('Phone Call permissions denied');
@@ -81,11 +88,11 @@ async function emergencyCall() {
   }
 }
 
-const AsyncAlert = () =>
+const AsyncAlert = text =>
   new Promise(resolve => {
     Alert.alert(
-      'Call 911',
-      'Are you sure you want to call?',
+      'Call immediately?',
+      'Are you sure you want to call ' + text + ' ?',
       [
         {
           text: 'CANCEL',
@@ -105,5 +112,22 @@ function share() {
 }
 
 function arrived() {
-  console.warn('Arrived!');
+  SendSMS.send(
+    {
+      body: 'Arrived!',
+      recipients: ['8478268553'],
+      successTypes: ['sent', 'queued'],
+      allowAndroidSendWithoutReadPermission: true,
+    },
+    (completed, cancelled, error) => {
+      console.log(
+        'SMS Callback: completed: ' +
+          completed +
+          ' cancelled: ' +
+          cancelled +
+          'error: ' +
+          error,
+      );
+    },
+  );
 }
