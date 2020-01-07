@@ -5,6 +5,7 @@ import {
   TouchableOpacity,
   View,
   PermissionsAndroid,
+  Linking,
 } from 'react-native';
 import styles from '~/../../app/styles/MainStyles';
 import Torch from 'react-native-torch';
@@ -42,7 +43,7 @@ export default function MainButtons() {
           </TouchableOpacity>
           <TouchableOpacity
             style={styles.largeButton}
-            onPress={() => immediateCall()}>
+            onPress={() => safeRides()}>
             <Text style={styles.buttonText}>SAFE RIDES</Text>
           </TouchableOpacity>
         </View>
@@ -133,7 +134,7 @@ function arrived() {
 }
 
 function safeRides() {
-  const url = "https://play.google.com/store/apps/details?id=com.routematch.cumtd&hl=en_US";
+  const url = "routematch.cumtd://app";
   Linking.canOpenURL(url)
   .then((supported) => {
     if (!supported) {
