@@ -116,7 +116,8 @@ function arrived() {
   SendSMS.send(
     {
       body: 'Arrived!',
-      recipients: ['8478268553'],
+      // Phone Number
+      recipients: ['8888888888'],
       successTypes: ['sent', 'queued'],
       allowAndroidSendWithoutReadPermission: true,
     },
