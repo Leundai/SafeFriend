@@ -69,12 +69,6 @@ You need to have either an IOS or Android emulator
 
 [React Native Startup Tutorial](https://reactnative.dev/docs/environment-setup)
 
-<!-- ROADMAP -->
-## Roadmap
-
-See the [open issues](https://github.com/Leundai/SafeFriend/issues) for a list of proposed features (and known issues).
-
-
 <!-- CONTRIBUTING -->
 ## Contributing
 
